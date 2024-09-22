@@ -12,6 +12,9 @@ export  async function signinController (req, res)  {
     }
   
     const token = generateToken(user);
-    res.cookie("token", token, { httpOnly: true });
+    res.cookie("token", token, {  httpOnly: true,
+        secure: true, // Ensure cookies are sent over HTTPS
+        sameSite: 'None' // Enable cross-origin requests to store cookies
+        });
     res.status(200).json({ message: "Sign-in successful" });
   }

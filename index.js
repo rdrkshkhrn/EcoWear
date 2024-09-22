@@ -24,12 +24,13 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3001",
     credentials: true,
   })
 );
 
 app.use(express.json());
+app.use(express.static('public'));
 app.use(cookieParser());
 
 const db = await initializeMongoDb();
@@ -92,6 +93,9 @@ app.get("/hello",(req,res)=>{
   res.send("Hello World!");
 })
 
+
 app.listen(PORT, () => {
   console.log(`app listening on port ${PORT}`);
 });
+
+export default app;
