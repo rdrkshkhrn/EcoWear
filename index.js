@@ -24,7 +24,7 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "https://eco-wear.netlify.app",
     credentials: true,
   })
 );
