@@ -88,6 +88,10 @@ app.get("/userposts", authenticateToken, userPostController);
 
 app.get("/otherposts", authenticateToken, otherPostController);
 
+app.get("/hello",(req,res)=>{
+  res.send("Hello World!");
+})
+
 app.listen(PORT, () => {
   console.log(`app listening on port ${PORT}`);
 });
